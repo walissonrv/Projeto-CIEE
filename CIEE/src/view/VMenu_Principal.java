@@ -23,10 +23,13 @@ import javax.swing.Action;
 public class VMenu_Principal extends JFrame {
 
 	private JPanel contentPane;
-	private VCadastrar_Aluno vcadastrarAluno;
-	private VConcedente cadastrarconcedente;
+	private VCadastrar_Aluno  cd_Aluno;
+	private VConcedente 	  cd_concedente;
+	private VCadastarServidor cd_Servidor;
 	private final Action action_1 = new SwingAction_1();
 	private final Action action = new SwingAction();
+	private final Action action_2 = new SwingAction_2();
+	
 
 	/**
 	 * Launch the application.
@@ -70,6 +73,7 @@ public class VMenu_Principal extends JFrame {
 		CD_Concedente.setAction(action);
 		JMenuItem CD_Estagio = new JMenuItem("Cadastrar  Estagio");
 		JMenuItem CD_Servidor = new JMenuItem("Cadastrar  Servidor");
+		CD_Servidor.setAction(action_2);
 		
 		JMenuItem PQ_Aluno = new JMenuItem("Pesquisar Aluno");
 		JMenuItem PQ_Concedente= new JMenuItem("Pesquisar Concedente");
@@ -107,8 +111,8 @@ public class VMenu_Principal extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
-			vcadastrarAluno = new VCadastrar_Aluno();
-			vcadastrarAluno.setVisible(true);
+			cd_Aluno = new VCadastrar_Aluno();
+			cd_Aluno.setVisible(true);
 			
 		}
 	}
@@ -118,8 +122,18 @@ public class VMenu_Principal extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
-			cadastrarconcedente=new VConcedente();
-			cadastrarconcedente.setVisible(true);
+			cd_concedente=new VConcedente();
+			cd_concedente.setVisible(true);
+		}
+	}
+	private class SwingAction_2 extends AbstractAction {
+		public SwingAction_2() {
+			putValue(NAME, "Cadastrar Servidor");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			cd_Servidor = new VCadastarServidor();
+			cd_Servidor.setVisible(true);
 		}
 	}
 }

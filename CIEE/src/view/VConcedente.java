@@ -31,8 +31,11 @@ public class VConcedente extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private final Action action = new SwingAction();
 	private VConcedente_Telefone_Email telefone_email;
+	private VMenu_Principal menu_p;
+	private final Action action = new SwingAction();
+	private final Action action_1 = new SwingAction_1();
+	private final Action action_2 = new SwingAction_2();
 
 	/**
 	 * Launch the application.
@@ -129,21 +132,7 @@ public class VConcedente extends JFrame {
 		textNomeResponsavelEstagio.setColumns(10);
 		
 		
-		JButton btnNewButton = new JButton("Salvar");
-		btnNewButton.setBounds(23, 290, 89, 23);
-		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Alterar");
-		btnNewButton_1.setBounds(125, 290, 89, 23);
-		contentPane.add(btnNewButton_1);
-		
-		JButton btnNewButton_1_1 = new JButton("Excluir");
-		btnNewButton_1_1.setBounds(224, 290, 89, 23);
-		contentPane.add(btnNewButton_1_1);
-		
-		JButton btnNewButton_1_1_1 = new JButton("Fechar");
-		btnNewButton_1_1_1.setBounds(319, 290, 89, 23);
-		contentPane.add(btnNewButton_1_1_1);
 		
 		JLabel lblNewLabel_6 = new JLabel("Data Inicio do Convenio");
 		lblNewLabel_6.setBounds(10, 145, 193, 14);
@@ -190,6 +179,28 @@ public class VConcedente extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
+		JButton btnNewButton = new JButton("Salvar");
+		btnNewButton.setBounds(23, 290, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Alterar");
+		btnNewButton_1.setBounds(125, 290, 89, 23);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Excluir");
+		btnNewButton_1_1.setBounds(224, 290, 89, 23);
+		contentPane.add(btnNewButton_1_1);
+		
+		JButton btnNewButton_1_1_1 = new JButton("Fechar");
+		btnNewButton_1_1_1.setAction(action_2);
+		btnNewButton_1_1_1.setBounds(319, 290, 89, 23);
+		contentPane.add(btnNewButton_1_1_1);
+		
+		JButton btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.setAction(action_1);
+		btnNewButton_2.setBounds(414, 290, 89, 23);
+		contentPane.add(btnNewButton_2);
+		
 	}
 
 	private class SwingAction extends AbstractAction {
@@ -201,6 +212,25 @@ public class VConcedente extends JFrame {
 			telefone_email=new VConcedente_Telefone_Email();
 			telefone_email.setVisible(true);
 			
+		}
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Voltar");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			menu_p = new VMenu_Principal();
+			menu_p.setVisible(true);
+		}
+	}
+	private class SwingAction_2 extends AbstractAction {
+		public SwingAction_2() {
+			putValue(NAME, "Fechar");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
 		}
 	}
 }

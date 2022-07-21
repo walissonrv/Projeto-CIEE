@@ -11,12 +11,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
 
 public class VContatoAluno extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textTpTelefone;
 	private JTextField textTelefone;
+	private VCadastrar_Aluno telefones;
+	private final Action action = new SwingAction();
+	private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -80,10 +86,35 @@ public class VContatoAluno extends JFrame {
 		contentPane.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("Fechar");
+		btnNewButton_1_1_1.setAction(action_1);
 		btnNewButton_1_1_1.setBounds(326, 156, 89, 23);
 		contentPane.add(btnNewButton_1_1_1);
 		
+		JButton btnNewButton_2 = new JButton("Voltar");
+		btnNewButton_2.setAction(action);
+		btnNewButton_2.setBounds(425, 156, 89, 23);
+		contentPane.add(btnNewButton_2);
+		
 	}
 
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "Voltar");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			telefones = new VCadastrar_Aluno();
+			telefones.setVisible(true);
+		}
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Fechar");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+		}
+	}
 }
 

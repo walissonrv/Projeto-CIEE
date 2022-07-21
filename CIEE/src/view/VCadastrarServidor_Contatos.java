@@ -10,19 +10,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
 import javax.swing.Action;
 
-public class VConcedente_Telefone_Email extends JFrame {
+public class VCadastrarServidor_Contatos extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textTelefoneConcedente;
-	private JTextField textTipoEmail;
-	private JTextField textEmailConcedente;
-	private VConcedente cd_concedente;
+	private JTextField textField;
+	private JTextField textField_1;
 	private final Action action = new SwingAction();
+	private VCadastarServidor cdServidor;
+	private final Action action_1 = new SwingAction_1();
 
 	/**
 	 * Launch the application.
@@ -31,7 +30,7 @@ public class VConcedente_Telefone_Email extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VConcedente_Telefone_Email frame = new VConcedente_Telefone_Email();
+					VCadastrarServidor_Contatos frame = new VCadastrarServidor_Contatos();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,8 +42,8 @@ public class VConcedente_Telefone_Email extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VConcedente_Telefone_Email() {
-		setTitle("Telefone / E-mail");
+	public VCadastrarServidor_Contatos() {
+		setTitle("Cadastro Telefone /E-mail");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 665, 425);
 		contentPane = new JPanel();
@@ -54,56 +53,43 @@ public class VConcedente_Telefone_Email extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Telefone");
-		lblNewLabel.setBounds(23, 56, 89, 14);
+		lblNewLabel.setBounds(10, 41, 79, 14);
 		contentPane.add(lblNewLabel);
 		
-		textTelefoneConcedente = new JTextField();
-		textTelefoneConcedente.setBounds(100, 53, 86, 20);
-		contentPane.add(textTelefoneConcedente);
-		textTelefoneConcedente.setColumns(10);
+		textField = new JTextField();
+		textField.setBounds(99, 38, 139, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Tipo E-mail");
-		lblNewLabel_1.setBounds(232, 56, 70, 14);
+		JLabel lblNewLabel_1 = new JLabel("E-mail");
+		lblNewLabel_1.setBounds(314, 41, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		textTipoEmail = new JTextField();
-		textTipoEmail.setBounds(296, 53, 129, 20);
-		contentPane.add(textTipoEmail);
-		textTipoEmail.setColumns(10);
-		
-		JLabel lblNewLabel_2 = new JLabel("E-mail");
-		lblNewLabel_2.setBounds(435, 56, 46, 14);
-		contentPane.add(lblNewLabel_2);
-		
-		textEmailConcedente = new JTextField();
-		textEmailConcedente.setBounds(475, 53, 150, 20);
-		contentPane.add(textEmailConcedente);
-		textEmailConcedente.setColumns(10);
+		textField_1 = new JTextField();
+		textField_1.setBounds(351, 38, 185, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Salvar");
-		btnNewButton.setBounds(23, 290, 89, 23);
+		btnNewButton.setBounds(32, 156, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Alterar");
-		btnNewButton_1.setBounds(125, 290, 89, 23);
+		btnNewButton_1.setBounds(128, 156, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Excluir");
-		btnNewButton_1_1.setBounds(224, 290, 89, 23);
+		btnNewButton_1_1.setBounds(227, 156, 89, 23);
 		contentPane.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("Fechar");
-		btnNewButton_1_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		btnNewButton_1_1_1.setBounds(319, 290, 89, 23);
+		btnNewButton_1_1_1.setAction(action_1);
+		btnNewButton_1_1_1.setBounds(326, 156, 89, 23);
 		contentPane.add(btnNewButton_1_1_1);
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		JButton btnNewButton_2 = new JButton("Voltar");
 		btnNewButton_2.setAction(action);
-		btnNewButton_2.setBounds(418, 290, 89, 23);
+		btnNewButton_2.setBounds(425, 156, 89, 23);
 		contentPane.add(btnNewButton_2);
 	}
 
@@ -113,8 +99,18 @@ public class VConcedente_Telefone_Email extends JFrame {
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 		public void actionPerformed(ActionEvent e) {
-			cd_concedente = new VConcedente();
-			cd_concedente.setVisible(true);
+			cdServidor= new VCadastarServidor();
+			cdServidor.setVisible(true);
+			
+		}
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "Fechar");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
 		}
 	}
 }
