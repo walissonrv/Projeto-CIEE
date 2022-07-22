@@ -26,9 +26,11 @@ public class VMenu_Principal extends JFrame {
 	private VCadastrar_Aluno  cd_Aluno;
 	private VConcedente 	  cd_concedente;
 	private VCadastarServidor cd_Servidor;
+	private VCadastroEstagio cd_Estagio;
 	private final Action action_1 = new SwingAction_1();
 	private final Action action = new SwingAction();
 	private final Action action_2 = new SwingAction_2();
+	private final Action action_3 = new SwingAction_3();
 	
 
 	/**
@@ -72,6 +74,7 @@ public class VMenu_Principal extends JFrame {
 		JMenuItem CD_Concedente = new JMenuItem("Cadastrar  Concedente");
 		CD_Concedente.setAction(action);
 		JMenuItem CD_Estagio = new JMenuItem("Cadastrar  Estagio");
+		CD_Estagio.setAction(action_3);
 		JMenuItem CD_Servidor = new JMenuItem("Cadastrar  Servidor");
 		CD_Servidor.setAction(action_2);
 		
@@ -134,6 +137,16 @@ public class VMenu_Principal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			cd_Servidor = new VCadastarServidor();
 			cd_Servidor.setVisible(true);
+		}
+	}
+	private class SwingAction_3 extends AbstractAction {
+		public SwingAction_3() {
+			putValue(NAME, "Cadastrar Estagio");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+			cd_Estagio= new VCadastroEstagio();
+			cd_Estagio.setVisible(true);
 		}
 	}
 }
